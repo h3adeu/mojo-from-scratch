@@ -42,6 +42,10 @@ exec/experiments/
 
 # Mojo ビルド成果物
 main_bin
+*.o
+*.asm
+# ch07 packages_demo のコンパイル済みバイナリ
+part2/ch07/packages_demo/main
 
 # uv
 .venv/
