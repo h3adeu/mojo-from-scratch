@@ -1,0 +1,1 @@
+../microgpt_mojo/input.txt

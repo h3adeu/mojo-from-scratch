@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Sphinx
+docs/build/
+docs/source/_build/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Private notes (not for public)
+notes/
+exec/experiments/
+
+# Mojo ビルド成果物
+main_bin
+
+# uv
+.venv/
+uv.lock
+
+# Mercurial & Jujutsu (not for public git)
+.hg/
+.hgignore
+.jj/

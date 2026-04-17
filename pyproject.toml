@@ -1,0 +1,28 @@
+[project]
+name = "mojo-from-scratch"
+version = "0.1.0"
+description = "「mojo入門 - 実際にコーディングしてみて」サンプルコード"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # Part3: MAX Graph 推論
+    "max>=26.2.0",
+    # Part3: MLX 版（Apple Silicon のみ動作）
+    "mlx>=0.31.1",
+    # Mojo ランタイム（mojo コマンドを uv run で使う場合）
+    "mojo>=0.26.2.0",
+    # Part3: PyTorch 版
+    "torch>=2.11.0",
+    # 共通ユーティリティ
+    "numpy>=2.4.4",
+]
+
+[tool.uv.sources]
+# MAX / Mojo は Modular の PyPI インデックスからインストールする
+mojo = { index = "modular" }
+max  = { index = "modular" }
+
+[[tool.uv.index]]
+name     = "modular"
+url      = "https://dl.modular.com/public/nightly/python/simple/"
+explicit = true
