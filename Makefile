@@ -20,6 +20,16 @@ MOJO   := uv run mojo
 PYTHON := uv run python
 UV     := uv
 
+# Mojo Python interop に必要な libpython のパスを自動検出して export する。
+# mise / pyenv など uv 管理外の Python を使う場合に MOJO_PYTHON_LIBRARY が
+# 未設定だと "Failed to load libpython" エラーになる。
+export MOJO_PYTHON_LIBRARY ?= $(shell uv run python -c \
+  "import sys, os, glob; \
+   base = sys.base_prefix; \
+   ver  = '{}.{}'.format(*sys.version_info[:2]); \
+   cands = glob.glob(os.path.join(base, 'lib', 'libpython' + ver + '*.dylib')); \
+   print(cands[0] if cands else '')" 2>/dev/null)
+
 # -----------------------------------------------------------------------------
 # 全体ターゲット
 # -----------------------------------------------------------------------------
