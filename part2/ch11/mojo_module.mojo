@@ -2,7 +2,6 @@
 from std.python import PythonObject
 from std.python.bindings import PythonModuleBuilder
 from std.os import abort
-import std.math
 
 
 @export
@@ -17,4 +16,7 @@ def PyInit_mojo_module() -> PythonObject:
 
 def factorial(py_obj: PythonObject) raises -> PythonObject:
     var n = Int(py=py_obj)
-    return PythonObject(math.factorial(n))
+    var result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return PythonObject(result)
