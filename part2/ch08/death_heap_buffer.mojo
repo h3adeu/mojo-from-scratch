@@ -1,4 +1,4 @@
-struct HeapInts(Writable):
+struct HeapInts:
     var data: UnsafePointer[Int, MutExternalOrigin]
     var size: Int
 

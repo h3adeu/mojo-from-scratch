@@ -1,5 +1,5 @@
 def byte_len[T: Writable](x: T) -> Int:
-    return len(String(x))
+    return String(x).byte_length()
 
 
 def main():

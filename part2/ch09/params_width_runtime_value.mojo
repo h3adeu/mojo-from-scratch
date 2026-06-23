@@ -1,4 +1,4 @@
-fn lanes[width: Int](scale: Int) -> Int:
+def lanes[width: Int](scale: Int) -> Int:
     return width * scale
 
 
