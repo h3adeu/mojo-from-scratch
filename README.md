@@ -1,6 +1,6 @@
 # mojo-from-scratch
 
-書籍「mojo入門 - 実際にコーディングしてみて」のサンプルコードリポジトリです。
+書籍「Mojo from Scratch — Python開発者のための実践入門と microgpt 読解」のサンプルコードリポジトリです。
 
 ## 必要な環境
 
