@@ -6,10 +6,9 @@
 
 | ツール | バージョン | 用途 |
 |--------|-----------|------|
-| [uv](https://docs.astral.sh/uv/) | 最新版 | Python パッケージ管理 |
-| [magic](https://docs.modular.com/magic/) | 最新版 | Mojo / MAX のインストール |
+| [uv](https://docs.astral.sh/uv/) | 最新版 | Python・Mojo・MAX のパッケージ管理（`uv sync` で一括導入） |
 | Python | 3.12 以上 | Part2 ch11、Part3 Python 版 |
-| Mojo | 最新安定版 | Part1〜Part3 Mojo サンプル |
+| Mojo / MAX | `uv sync` で導入 | Part1〜Part3 Mojo サンプル、Part3 MAX 推論（`pyproject.toml` の依存） |
 
 ### Apple Silicon Mac の場合
 
@@ -32,22 +31,25 @@ make setup
 
 ## ディレクトリ構成
 
+ディレクトリ名 `chNN` は整理用の通し番号で、書籍の章番号とは一致しません。
+各ディレクトリが対応する書籍の章を併記します。
+
 ```
 mojo-from-scratch/
 ├── Makefile
 ├── pyproject.toml
 ├── README.md
 ├── part1/
-│   ├── ch01/   hello world と逆アセンブル
-│   └── ch04/   Python との速度・記法比較
+│   ├── ch01/   第1章 hello world ＋ 第5章 逆アセンブル
+│   └── ch04/   第4章 Python との比較・入口
 ├── part2/
-│   ├── ch05/   変数・関数の基礎
-│   ├── ch06/   型・演算子・制御フロー・エラー処理
-│   ├── ch07/   struct・パッケージ
-│   ├── ch08/   値・所有権・ライフサイクル
-│   ├── ch09/   メタプログラミング
-│   ├── ch10/   ポインタ・GPU・レイアウト
-│   └── ch11/   Python interop
+│   ├── ch05/   第6章 概要・関数・変数 ＋ 第7章 アセンブリを読む
+│   ├── ch06/   第8章 型・演算子・制御・エラー
+│   ├── ch07/   第9章 struct・参照型・パッケージ
+│   ├── ch08/   第10章 値・所有権・ライフサイクル
+│   ├── ch09/   第11章 メタプログラミング
+│   ├── ch10/   第12章 ポインタ・GPU・レイアウト
+│   └── ch11/   第13章 Python 相互運用
 └── part3/
     ├── microgpt.py              純 Python autograd
     ├── microgpt_torch.py        PyTorch 版
@@ -79,20 +81,20 @@ make run-part3   # Part3 サンプル（数分〜30分）
 ### Part1: hello world と逆アセンブル
 
 ```bash
-make run-p1-ch01   # hello_mojo_minimal.mojo
-make run-p1-ch04   # python_comparison（2ファイル）
+make run-p1-ch01   # 第1章/第5章 hello_mojo_minimal.mojo
+make run-p1-ch04   # 第4章 python_comparison（2ファイル）
 ```
 
 ### Part2: 言語仕様サンプル
 
 ```bash
-make run-p2-ch05   # 変数・関数の基礎
-make run-p2-ch06   # 型・演算子・制御フロー・エラー処理
-make run-p2-ch07   # struct・パッケージ（packages_demo を含む）
-make run-p2-ch08   # 値・所有権・ライフサイクル
-make run-p2-ch09   # メタプログラミング
-make run-p2-ch10   # ポインタ・GPU・レイアウト
-make run-p2-ch11   # Python interop
+make run-p2-ch05   # 第6章/第7章 概要・関数・変数、アセンブリを読む
+make run-p2-ch06   # 第8章 型・演算子・制御・エラー
+make run-p2-ch07   # 第9章 struct・参照型・パッケージ（packages_demo を含む）
+make run-p2-ch08   # 第10章 値・所有権・ライフサイクル
+make run-p2-ch09   # 第11章 メタプログラミング
+make run-p2-ch10   # 第12章 ポインタ・GPU・レイアウト
+make run-p2-ch11   # 第13章 Python 相互運用
 ```
 
 ### Part3: microgpt 各バリエーション
