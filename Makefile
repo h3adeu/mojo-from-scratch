@@ -88,14 +88,17 @@ clean:
 # -----------------------------------------------------------------------------
 # Part 1: Mojo 入門 - hello world と Python 比較
 # -----------------------------------------------------------------------------
-.PHONY: run-part1 run-p1-ch01 run-p1-ch04
+.PHONY: run-part1 run-p1-ch01 run-p1-ch03 run-p1-ch04
 
-run-part1: run-p1-ch01 run-p1-ch04
+run-part1: run-p1-ch01 run-p1-ch03 run-p1-ch04
 
 run-p1-ch01:
 	@echo ""
 	@echo "=== Part1 / ch01: hello_mojo_minimal ==="
 	$(MOJO) run part1/ch01/hello_mojo_minimal.mojo
+	$(MOJO) run part1/ch01/point_distance.mojo
+	$(MOJO) run part1/ch01/ownership_conventions.mojo
+	$(MOJO) run part1/ch01/numpy_mean.mojo
 
 run-p1-ch04:
 	@echo ""
@@ -105,15 +108,22 @@ run-p1-ch04:
 	@echo "=== Part1 / ch04: python_comparison_calculate_average_raises ==="
 	$(MOJO) run part1/ch04/python_comparison_calculate_average_raises.mojo
 
+run-p1-ch03:
+	@echo ""
+	@echo "=== Part1 / ch03: numpy_sum ==="
+	$(MOJO) run part1/ch03/numpy_sum.mojo
+
 # -----------------------------------------------------------------------------
 # Part 2: 言語仕様サンプル
 # -----------------------------------------------------------------------------
 .PHONY: run-part2 \
         run-p2-ch05 run-p2-ch06 run-p2-ch07 \
-        run-p2-ch08 run-p2-ch09 run-p2-ch10 run-p2-ch11
+        run-p2-ch08 run-p2-ch09 run-p2-ch10 run-p2-ch11 \
+        run-p2-ch12 run-p2-ch13
 
 run-part2: run-p2-ch05 run-p2-ch06 run-p2-ch07 \
-           run-p2-ch08 run-p2-ch09 run-p2-ch10 run-p2-ch11
+           run-p2-ch08 run-p2-ch09 run-p2-ch10 run-p2-ch11 \
+           run-p2-ch12 run-p2-ch13
 
 run-p2-ch05:
 	@echo ""
@@ -123,6 +133,7 @@ run-p2-ch05:
 	$(MOJO) run part2/ch05/variables_implicit_scope.mojo
 	$(MOJO) run part2/ch05/variables_ownership_transfer.mojo
 	$(MOJO) run part2/ch05/functions_overload_params.mojo
+	$(MOJO) run part2/ch05/raises_try_except.mojo
 
 run-p2-ch06:
 	@echo ""
@@ -147,6 +158,7 @@ run-p2-ch07:
 	$(MOJO) run part2/ch07/reference_heap_int_cell.mojo
 	$(MOJO) run part2/ch07/reference_heapints_managed.mojo
 	$(MOJO) run part2/ch07/reference_ref_list_double.mojo
+	$(MOJO) run part2/ch07/counter_init.mojo
 	@echo ""
 	@echo "--- ch07: packages_demo ---"
 	cd part2/ch07/packages_demo && $(MOJO) run main.mojo
@@ -162,6 +174,9 @@ run-p2-ch08:
 	$(MOJO) run part2/ch08/life_copyable_label.mojo
 	$(MOJO) run part2/ch08/init_box_bounds.mojo
 	$(MOJO) run part2/ch08/death_heap_buffer.mojo
+	$(MOJO) run part2/ch08/ref_return_origin.mojo
+	$(MOJO) run part2/ch08/move_transfer.mojo
+	$(MOJO) run part2/ch08/fieldwise_init_intrange.mojo
 
 run-p2-ch09:
 	@echo ""
@@ -182,6 +197,7 @@ run-p2-ch10:
 	$(MOJO) run part2/ch10/unsafe_buffer_three_ints.mojo
 	$(MOJO) run part2/ch10/layout_row_major_shape.mojo
 	$(MOJO) run part2/ch10/layout_tensor_small.mojo
+	$(MOJO) run part2/ch10/foreign_pointer_numpy.mojo
 	$(MOJO) run part2/ch10/gpu_host_buffer_list_stand_in.mojo
 	$(MOJO) run part2/ch10/gpu_linear_thread_index.mojo
 	$(MOJO) run part2/ch10/gpu_tile_loop_nest.mojo
@@ -194,6 +210,22 @@ run-p2-ch11:
 	@echo ""
 	@echo "--- ch11: Mojo モジュールを Python から呼ぶ ---"
 	$(PYTHON) part2/ch11/call_mojo_factorial.py
+
+run-p2-ch12:
+	@echo ""
+	@echo "=== Part2 / ch12: Pythonista 向け読み替え ==="
+	$(MOJO) run part2/ch12/mut_read.mojo
+	$(MOJO) run part2/ch12/mut_list.mojo
+	$(MOJO) run part2/ch12/var_move.mojo
+	$(MOJO) run part2/ch12/comptime_repeat.mojo
+	$(MOJO) run part2/ch12/comptime_generic.mojo
+	$(MOJO) run part2/ch12/trait_printable.mojo
+
+run-p2-ch13:
+	@echo ""
+	@echo "=== Part2 / ch13: NumPy 相互運用 ==="
+	$(MOJO) run part2/ch13/numpy_basic.mojo
+	$(MOJO) run part2/ch13/numpy_zero_copy.mojo
 
 # -----------------------------------------------------------------------------
 # Part 3: microgpt 各バリエーション
