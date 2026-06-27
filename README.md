@@ -41,6 +41,7 @@ mojo-from-scratch/
 ├── README.md
 ├── part1/
 │   ├── ch01/   第1章 hello world ＋ 第5章 逆アセンブル
+│   ├── ch03/   第3章 設計思想（Python interop の例）
 │   └── ch04/   第4章 Python との比較・入口
 ├── part2/
 │   ├── ch05/   第6章 概要・関数・変数 ＋ 第7章 アセンブリを読む
@@ -49,7 +50,9 @@ mojo-from-scratch/
 │   ├── ch08/   第10章 値・所有権・ライフサイクル
 │   ├── ch09/   第11章 メタプログラミング
 │   ├── ch10/   第12章 ポインタ・GPU・レイアウト
-│   └── ch11/   第13章 Python 相互運用
+│   ├── ch11/   第13章 Python 相互運用
+│   ├── ch12/   第14章 Pythonista 向けの読み替え
+│   └── ch13/   第15章 相互運用の実例・まとめ
 └── part3/
     ├── microgpt.py              純 Python autograd
     ├── microgpt_torch.py        PyTorch 版
@@ -81,7 +84,8 @@ make run-part3   # Part3 サンプル（数分〜30分）
 ### Part1: hello world と逆アセンブル
 
 ```bash
-make run-p1-ch01   # 第1章/第5章 hello_mojo_minimal.mojo
+make run-p1-ch01   # 第1章/第5章 hello world・Point・所有権・NumPy
+make run-p1-ch03   # 第3章 numpy_sum（Python interop）
 make run-p1-ch04   # 第4章 python_comparison（2ファイル）
 ```
 
@@ -95,6 +99,8 @@ make run-p2-ch08   # 第10章 値・所有権・ライフサイクル
 make run-p2-ch09   # 第11章 メタプログラミング
 make run-p2-ch10   # 第12章 ポインタ・GPU・レイアウト
 make run-p2-ch11   # 第13章 Python 相互運用
+make run-p2-ch12   # 第14章 Pythonista 向けの読み替え
+make run-p2-ch13   # 第15章 相互運用の実例・まとめ
 ```
 
 ### Part3: microgpt 各バリエーション
